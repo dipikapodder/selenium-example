@@ -31,7 +31,7 @@ public class ChromeDriverTest {
     @Before
     public void prepare() {
         //setup chromedriver
-        System.setProperty("webdriver.chrome.driver","/var/lib/jenkins/workspace/selenium2/webdriver/chromedriver/chrome.exe");
+        System.setProperty("webdriver.chrome.driver","/var/lib/jenkins/workspace/selenium2/webdriver/chromedriver");
         driver = new ChromeDriver();
 
         testUrl = "https://leftstick.github.io/";
