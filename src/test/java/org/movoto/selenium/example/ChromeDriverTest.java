@@ -31,22 +31,7 @@ public class ChromeDriverTest {
     @Before
     public void prepare() {
         //setup chromedriver
-        
-        String DRIVER_BINARY_LOCATION;
-        switch(os.toUpperCase()){
-    
-            case "MAC":
-                DRIVER_BINARY_LOCATION = System.getProperty("user.dir") + "/resources/chromedriver");
-                break;
-            case "LINUX":
-                DRIVER_BINARY_LOCATION = System.getProperty("user.dir") + "/resources/chromedriver");
-                break;
-            case "WINDOW":
-                DRIVER_BINARY_LOCATION = System.getProperty("user.dir") + "/resources/chromedriver.exe");
-                break;
-            default:
-                throw new IllegalArgumentException("Any meaningful message");
-        }
+        DRIVER_BINARY_LOCATION = System.getProperty("user.dir") + "/resources/chromedriver");
         System.setProperty("webdriver.chrome.driver", DRIVER_BINARY_LOCATION);
         WebDriver driver = new ChromeDriver();
         
