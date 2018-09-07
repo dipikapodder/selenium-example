@@ -31,8 +31,27 @@ public class ChromeDriverTest {
     @Before
     public void prepare() {
         //setup chromedriver
-        System.setProperty("webdriver.chrome.driver","/var/lib/jenkins/workspace/selenium2/webdriver/chromedriver");
-        driver = new ChromeDriver();
+        
+        String DRIVER_BINARY_LOCATION;
+        switch(os.toUpperCase()){
+    
+            case "MAC":
+                DRIVER_BINARY_LOCATION = System.getProperty("user.dir") + "/resources/chromedriver");
+                break;
+            case "LINUX":
+                DRIVER_BINARY_LOCATION = System.getProperty("user.dir") + "/resources/chromedriver");
+                break;
+            case "WINDOW":
+                DRIVER_BINARY_LOCATION = System.getProperty("user.dir") + "/resources/chromedriver.exe");
+                break;
+            default:
+                throw new IllegalArgumentException("Any meaningful message");
+        }
+        System.setProperty("webdriver.chrome.driver", DRIVER_BINARY_LOCATION);
+        WebDriver driver = new ChromeDriver();
+        
+        //System.setProperty("webdriver.chrome.driver","/var/lib/jenkins/workspace/selenium2/webdriver/chromedriver");
+        //driver = new ChromeDriver();
 
         testUrl = "https://leftstick.github.io/";
 
